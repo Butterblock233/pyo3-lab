@@ -1,17 +1,17 @@
 set windows-shell := ["pwsh", "-nologo","-noprofile","-command"]
 
 # Build and install the package, including generating stubs
-build_package: gen_stubs
-	@echo "Building pypi package"
+build_package: build_rust
+	@echo "Building pypi package: "
 	uv pip install -e ./rust
 
 build_rust:gen_stubs
-	@echo "Building rust package"
-	uvx maturin develop --uv
+	@echo "Building rust package: "
+	uvx maturin develop --uv --release
 
 # Generate .pyi stub files
 gen_stubs:
-	@echo "Generating stubs"
+	@echo "Generating stubs: "
 	@cd rust && cargo run --bin stub_gen
 
 # Clean the rust project
