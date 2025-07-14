@@ -1,4 +1,3 @@
-from rust import guess_the_number
+from rust import add
 
-if __name__ == "__main__":
-	guess_the_number()
+print(add(2,3))
