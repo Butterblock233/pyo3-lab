@@ -1,9 +1,4 @@
-
-from operator import add
-
+from rust import guess_the_number
 
 if __name__ == "__main__":
-	result = add(1, 2)
-	print(result)
-	print()
-	print(sum([1, 2, 3, 4, 5]))
+	guess_the_number()
